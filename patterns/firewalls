@@ -47,6 +47,8 @@ CISCOFW106100_2_3 access-list %{NOTSPACE:policy_id} %{CISCO_ACTION:action} %{WOR
 CISCOFW106100 access-list %{NOTSPACE:policy_id} %{CISCO_ACTION:action} %{WORD:protocol} %{DATA:src_interface}/%{IP:src_ip}\(%{INT:src_port}\)(\(%{DATA:src_fwuser}\))? -> %{DATA:dst_interface}/%{IP:dst_ip}\(%{INT:dst_port}\)(\(%{DATA:src_fwuser}\))? hit-cnt %{INT:hit_count} %{CISCO_INTERVAL:interval} \[%{DATA:hashcode1}, %{DATA:hashcode2}\]
 # ASA-6-110002
 CISCOFW110002 %{CISCO_REASON:reason} for %{WORD:protocol} from %{DATA:src_interface}:%{IP:src_ip}/%{INT:src_port} to %{IP:dst_ip}/%{INT:dst_port}
+# ASA-3-113004
+CISCOFW113004 AAA user %{DATA:aaa_type} Successful : server =  %{IP:src_ip} : user = %{GREEDYDATA:user}
 # ASA-6-302010
 CISCOFW302010 %{INT:connection_count} in use, %{INT:connection_count_max} most used
 # ASA-6-302013, ASA-6-302014, ASA-6-302015, ASA-6-302016
